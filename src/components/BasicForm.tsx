@@ -17,6 +17,7 @@ export const BasicForm = () => {
       }}
       onSubmit={(values) => {
         dispatch(actions.setCustomerData(values));
+        dispatch(actions.saveCustomerRequest());
       }}
     >
       <Form>

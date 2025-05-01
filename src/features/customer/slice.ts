@@ -25,7 +25,9 @@ export const customerSlice = createSlice({
   name: "customer",
   initialState,
   reducers: {
+    saveCustomerRequest: () => {},
     saveDiscordRequest: () => {},
+    getCustomerRequest: () => {},
     setLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload;
     },

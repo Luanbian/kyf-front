@@ -1,15 +1,13 @@
 import { BasicForm } from "./components/BasicForm";
 import { DiscordConnect } from "./components/DiscordConnect";
+import { Profile } from "./components/Profile";
 
 function App() {
   return (
     <div>
-      <h1>Hello world</h1>
-      <div>
-        <h2>Data:</h2>
-      </div>
       <BasicForm />
       <DiscordConnect />
+      <Profile />
     </div>
   );
 }

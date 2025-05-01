@@ -19,7 +19,25 @@ export interface Customer {
   isFuriaGuild?: boolean | null;
 }
 
-export interface CustomerResponse {
+export interface CustomerUpdatedResponse {
   acknowledged: boolean;
   insertedId: string;
+}
+
+export interface CustomerResponse {
+  _id: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  cpf: string;
+  birthDate: string;
+  interests: string[];
+  discord: {
+    id: string;
+    username: string;
+    avatar: string;
+    globalName: string;
+    email: string;
+    isFuriaGuild: boolean;
+  };
 }
