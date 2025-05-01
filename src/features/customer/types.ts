@@ -12,7 +12,7 @@ export interface Customer {
   email: string;
   phone: string;
   cpf: string;
-  birthdate: string;
+  birthDate: string;
   interests: string[];
   avatar?: string | null;
   username?: string | null;
