@@ -72,6 +72,24 @@ function* getCustomer() {
       isFuriaGuild: data.discord?.isFuriaGuild,
     };
 
+    const calcFanPoints = () => {
+      const fieldsWithPoints = [
+        { field: customerData.fullName, points: 10 },
+        { field: customerData.email, points: 10 },
+        { field: customerData.phone, points: 10 },
+        { field: customerData.cpf, points: 10 },
+        { field: customerData.birthDate, points: 10 },
+        { field: customerData.interests, points: 10 },
+        { field: customerData.username, points: 10 },
+        { field: customerData.isFuriaGuild, points: 30 },
+      ];
+
+      return fieldsWithPoints.reduce((total, { field, points }) => {
+        return field ? total + points : total;
+      }, 0);
+    };
+
+    yield put(actions.setFanPoints(calcFanPoints()));
     yield put(actions.setCustomerData(customerData));
   } catch (error) {
     yield put(actions.setError(String(error)));

@@ -8,6 +8,7 @@ export const initialState: CustomerSliceState = {
   error: null,
   errorDiscord: null,
   customerId: "",
+  fanPoints: 0,
   data: {
     fullName: "",
     email: "",
@@ -45,6 +46,9 @@ export const customerSlice = createSlice({
     },
     setCustomerData(state, action: PayloadAction<CustomerSliceState["data"]>) {
       state.data = action.payload;
+    },
+    setFanPoints(state, action: PayloadAction<number>) {
+      state.fanPoints = action.payload;
     },
   },
 });

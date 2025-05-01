@@ -4,6 +4,7 @@ export interface CustomerSliceState {
   error: string | null;
   errorDiscord: string | null;
   customerId: string | null;
+  fanPoints: number;
   data: Customer;
 }
 
