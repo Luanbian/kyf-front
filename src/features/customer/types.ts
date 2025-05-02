@@ -19,6 +19,14 @@ export interface Customer {
   username?: string | null;
   isFuriaGuild?: boolean | null;
   extractedDocument?: string | null;
+  address?: {
+    street: string;
+    number: string;
+    complement?: string;
+    city: string;
+    state: string;
+    zipCode: string;
+  };
 }
 
 export interface CustomerUpdatedResponse {
@@ -34,6 +42,14 @@ export interface CustomerResponse {
   cpf: string;
   birthDate: string;
   interests: string[];
+  address?: {
+    street: string;
+    number: string;
+    complement?: string;
+    city: string;
+    state: string;
+    zipCode: string;
+  };
   discord: {
     id: string;
     username: string;

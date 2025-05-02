@@ -9,7 +9,7 @@ export const useAuthToken = () => {
       setHasAuthToken(!!Cookies.get("authToken"));
     };
 
-    const intervalId = setInterval(checkAuthToken, 1000);
+    const intervalId = setInterval(checkAuthToken, 100);
 
     return () => clearInterval(intervalId);
   }, []);

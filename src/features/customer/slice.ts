@@ -20,6 +20,14 @@ export const initialState: CustomerSliceState = {
     username: null,
     isFuriaGuild: null,
     extractedDocument: null,
+    address: {
+      street: "",
+      number: "",
+      complement: "",
+      city: "",
+      state: "",
+      zipCode: "",
+    },
   },
 };
 
