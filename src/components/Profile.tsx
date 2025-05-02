@@ -1,8 +1,7 @@
+import classes from "./styles/profile.module.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "../store/hooks";
 import { actions } from "../features/customer";
-import { Points } from "./Points";
-import { UploadDocument } from "./Upload";
 
 export const Profile = () => {
   const dispatch = useDispatch();
@@ -13,13 +12,28 @@ export const Profile = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Profile</h1>
-      <p>This is the profile page.</p>
-      <h2>Customer Data</h2>
-      <p>{JSON.stringify(data)}</p>
-      <Points />
-      <UploadDocument />
+    <div className={classes.container}>
+      <div className={classes.group}>
+        <h1>Profile</h1>
+        <div>
+          <h2>Full Name</h2>
+          <p>{data.fullName}</p>
+
+          <h2>Email</h2>
+          <p>{data.email}</p>
+
+          <h2>Phone</h2>
+          <p>{data.phone}</p>
+
+          <h2>CPF</h2>
+          <p>{data.cpf}</p>
+
+          <h2>Birthdate</h2>
+          <p>{data.birthDate}</p>
+          <h2>Interests</h2>
+          <p>{data.interests?.join(", ")}</p>
+        </div>
+      </div>
     </div>
   );
 };

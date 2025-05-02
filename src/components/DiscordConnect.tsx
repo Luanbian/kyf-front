@@ -1,3 +1,4 @@
+import classes from "./styles/discordConnect.module.css";
 import { useEffect } from "react";
 import { API_BASE_URL } from "../constants/api";
 import { useDispatch, useSelector } from "../store/hooks";
@@ -20,11 +21,13 @@ export const DiscordConnect = () => {
   }, [connected, username]);
 
   return (
-    <div>
-      <h1>Connect to Discord</h1>
-      <button onClick={connectDiscord}>
-        {connected ? "Conectado!" : "Conectar"}
-      </button>
+    <div className={classes.container}>
+      <div className={classes.group}>
+        <h1>Connect to Discord</h1>
+        <button onClick={connectDiscord}>
+          {connected ? "Conectado!" : "Conectar"}
+        </button>
+      </div>
     </div>
   );
 };

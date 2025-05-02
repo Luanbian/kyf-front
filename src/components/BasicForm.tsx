@@ -1,5 +1,6 @@
-import { actions } from "../features/customer";
 import * as Yup from "yup";
+import classes from "./styles/basicForm.module.css";
+import { actions } from "../features/customer";
 import { useDispatch, useSelector } from "../store/hooks";
 import { Formik, Field, Form, FieldInputProps, ErrorMessage } from "formik";
 import { MultiSelect } from "./select/MultiSelect";
@@ -13,8 +14,12 @@ export const BasicForm = () => {
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
-    phone: Yup.string().required("Phone is required"),
-    cpf: Yup.string().required("CPF is required"),
+    phone: Yup.string()
+      .required("Phone is required")
+      .length(11, "Telefone deve estar completo"),
+    cpf: Yup.string()
+      .required("CPF is required")
+      .length(11, "CPF deve estar completo"),
     birthDate: Yup.date().required("Birthdate is required"),
     interests: Yup.array().min(1, "At least one interest is required"),
     address: Yup.object({
@@ -51,59 +56,68 @@ export const BasicForm = () => {
         dispatch(actions.saveCustomerRequest());
       }}
     >
-      <Form style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        <div>
-          <Field name="fullName" placeholder="Full Name" />
-          <ErrorMessage name="fullName" component="div" />
-        </div>
+      <Form className={classes.form}>
+        <div className={classes.container}>
+          <h1>Bem vindo</h1>
 
-        <div>
-          <Field name="email" placeholder="Email" />
+          <h3>Campos obrigatórios</h3>
+          <div className={classes.formGroupRequired}>
+            <div>
+              <Field name="fullName" placeholder="Full Name" />
+              <ErrorMessage name="fullName" component="div" />
+            </div>
 
-          <ErrorMessage name="email" component="div" />
-        </div>
-        <div>
-          <Field name="phone" placeholder="Phone" />
-          <ErrorMessage name="phone" component="div" />
-        </div>
+            <div>
+              <Field name="email" placeholder="Email" />
+              <ErrorMessage name="email" component="div" />
+            </div>
 
-        <div>
-          <Field name="cpf" placeholder="CPF" />
+            <div>
+              <Field name="phone" placeholder="Phone" />
+              <ErrorMessage name="phone" component="div" />
+            </div>
 
-          <ErrorMessage name="cpf" component="div" />
-        </div>
+            <div>
+              <Field name="cpf" placeholder="CPF" />
+              <ErrorMessage name="cpf" component="div" />
+            </div>
 
-        <div>
-          <Field name="birthDate" placeholder="Birthdate" />
-          <ErrorMessage name="birthDate" component="div" />
-        </div>
+            <div>
+              <Field name="birthDate">
+                {({ field }: { field: FieldInputProps<string> }) => (
+                  <input {...field} type="date" placeholder="Birthdate" />
+                )}
+              </Field>
 
-        <div>
-          <Field name="interests">
-            {({ field }: { field: FieldInputProps<string> }) => (
-              <MultiSelect {...field} />
-            )}
-          </Field>
-          <ErrorMessage name="interests" component="div" />
-        </div>
+              <ErrorMessage name="birthDate" component="div" />
+            </div>
 
-        <Field name="address.street" placeholder="Street" />
+            <div>
+              <Field name="interests">
+                {({ field }: { field: FieldInputProps<string> }) => (
+                  <MultiSelect {...field} />
+                )}
+              </Field>
+              <ErrorMessage name="interests" component="div" />
+            </div>
+          </div>
 
-        <Field name="address.number" placeholder="Number" />
+          <h3>Campos opcionais</h3>
+          <div className={classes.formGroupOptional}>
+            <Field name="address.street" placeholder="Street" />
+            <Field name="address.number" placeholder="Number" />
+            <Field name="address.complement" placeholder="Complement" />
+            <Field name="address.city" placeholder="City" />
+            <Field name="address.state" placeholder="State" />
+            <Field name="address.zipCode" placeholder="Zip Code" />
+          </div>
 
-        <Field name="address.complement" placeholder="Complement" />
-
-        <Field name="address.city" placeholder="City" />
-
-        <Field name="address.state" placeholder="State" />
-
-        <Field name="address.zipCode" placeholder="Zip Code" />
-
-        <div>
-          <button type="submit" disabled={loading}>
-            {!loading ? "Confirmar" : "Carregando.."}
-          </button>
-          {error && <div>{error}</div>}
+          <div className={classes.formGroupButton}>
+            <button type="submit" disabled={loading}>
+              {!loading ? "Confirmar" : "Carregando.."}
+            </button>
+            {error && <div>{error}</div>}
+          </div>
         </div>
       </Form>
     </Formik>

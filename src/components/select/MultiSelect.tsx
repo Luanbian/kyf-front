@@ -29,6 +29,49 @@ export const MultiSelect = (field: FieldInputProps<string>) => {
       options={options}
       onChange={handleChange}
       value={options.filter((option) => field.value.includes(option.value))}
+      styles={{
+        control: (base) => ({
+          ...base,
+          backgroundColor: "#242424",
+          borderColor: "#ccc",
+          borderRadius: "8px",
+          padding: "4px",
+          boxShadow: "none",
+          "&:hover": {
+            borderColor: "#888",
+          },
+        }),
+        option: (base, { isFocused, isSelected }) => ({
+          ...base,
+          backgroundColor: isSelected
+            ? "#007bff"
+            : isFocused
+              ? "#e9ecef"
+              : "white",
+          color: isSelected ? "white" : "black",
+          "&:hover": {
+            backgroundColor: "#e9ecef",
+          },
+        }),
+        multiValue: (base) => ({
+          ...base,
+          backgroundColor: "#007bff",
+          color: "white",
+          borderRadius: "4px",
+        }),
+        multiValueLabel: (base) => ({
+          ...base,
+          color: "white",
+        }),
+        multiValueRemove: (base) => ({
+          ...base,
+          color: "white",
+          "&:hover": {
+            backgroundColor: "#0056b3",
+            color: "white",
+          },
+        }),
+      }}
     />
   );
 };
