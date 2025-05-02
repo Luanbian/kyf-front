@@ -1,4 +1,5 @@
 import Cookies from "js-cookie";
+import { PayloadAction } from "@reduxjs/toolkit";
 import { all, call, put, select, takeEvery } from "redux-saga/effects";
 import axios, { AxiosResponse } from "axios";
 import { actions } from "./slice";
@@ -70,6 +71,7 @@ function* getCustomer() {
       avatar: data.discord?.avatar,
       username: data.discord?.username,
       isFuriaGuild: data.discord?.isFuriaGuild,
+      extractedDocument: data.documents?.cpf,
     };
 
     const calcFanPoints = () => {
@@ -98,10 +100,37 @@ function* getCustomer() {
   }
 }
 
+function* saveDocument(action: PayloadAction<File>) {
+  yield put(actions.setLoading(true));
+  try {
+    const customerId: string = yield select(
+      (state) => state.customer.customerId,
+    );
+
+    const formData = new FormData();
+    formData.append("document", action.payload);
+
+    const response: AxiosResponse<APIResponse<CustomerResponse["documents"]>> =
+      yield call(
+        axios.post,
+        `${API_BASE_URL}/documents/${customerId}`,
+        formData,
+      );
+    const { data } = response.data;
+
+    yield put(actions.setExtractedDocument(data.cpf));
+  } catch (error) {
+    yield put(actions.setError(String(error)));
+  } finally {
+    yield put(actions.setLoading(false));
+  }
+}
+
 export function* customerSagas() {
   yield all([
     takeEvery(actions.saveCustomerRequest.type, saveCustomer),
     takeEvery(actions.saveDiscordRequest.type, saveCustomerDiscord),
     takeEvery(actions.getCustomerRequest.type, getCustomer),
+    takeEvery(actions.saveUploadedDocument.type, saveDocument),
   ]);
 }

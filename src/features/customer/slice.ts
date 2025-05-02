@@ -19,6 +19,7 @@ export const initialState: CustomerSliceState = {
     avatar: null,
     username: null,
     isFuriaGuild: null,
+    extractedDocument: null,
   },
 };
 
@@ -26,6 +27,7 @@ export const customerSlice = createSlice({
   name: "customer",
   initialState,
   reducers: {
+    saveUploadedDocument: (_, _action) => {},
     saveCustomerRequest: () => {},
     saveDiscordRequest: () => {},
     getCustomerRequest: () => {},
@@ -49,6 +51,12 @@ export const customerSlice = createSlice({
     },
     setFanPoints(state, action: PayloadAction<number>) {
       state.fanPoints = action.payload;
+    },
+    setExtractedDocument(
+      state,
+      action: PayloadAction<CustomerSliceState["data"]["extractedDocument"]>,
+    ) {
+      state.data.extractedDocument = action.payload;
     },
   },
 });

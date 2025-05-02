@@ -18,6 +18,7 @@ export interface Customer {
   avatar?: string | null;
   username?: string | null;
   isFuriaGuild?: boolean | null;
+  extractedDocument?: string | null;
 }
 
 export interface CustomerUpdatedResponse {
@@ -40,5 +41,8 @@ export interface CustomerResponse {
     globalName: string;
     email: string;
     isFuriaGuild: boolean;
+  };
+  documents: {
+    cpf: string;
   };
 }
