@@ -15,7 +15,7 @@ export const Profile = () => {
 
   return (
     <div>
-      <img src={bg} alt="Logo" className={classes.bg} />
+      <img src={bg} alt="background" className={classes.bg} />
       <div className={classes.container}>
         <div className={classes.group}>
           <h1>Profile</h1>

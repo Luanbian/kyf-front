@@ -35,7 +35,7 @@ export const BasicForm = () => {
 
   return (
     <div>
-      <img src={bg} alt="Logo" className={classes.bg} />
+      <img src={bg} alt="background" className={classes.bg} />
       <Formik
         initialValues={{
           fullName: data.fullName || "",
