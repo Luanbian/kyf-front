@@ -52,11 +52,11 @@ Este projeto foi desenvolvido como um desafio técnico para a equipe de recrutam
 
 ## 📸 Exemplos Visuais
 
-| Função         | Imagem                                                                               |
-| :------------- | :----------------------------------------------------------------------------------- |
-| Boas-vindas    | ![Start Screen](https://github.com/Luanbian/telegram-bot/blob/main/public/start.png) |
-| Últimos Clipes | ![Clipes](https://github.com/Luanbian/telegram-bot/blob/main/public/clipe.png)       |
-| Notice         | ![Lineup](https://github.com/Luanbian/telegram-bot/blob/main/public/notice.png)      |
+| Função             | Imagem                                                                            |
+| :----------------- | :-------------------------------------------------------------------------------- |
+| Formulário inicial | ![Start Screen](https://github.com/Luanbian/kyf-front/blob/main/public/basic.png) |
+| Discord            | ![Clipes](https://github.com/Luanbian/kyf-front/blob/main/public/disc.png)        |
+| Perfil             | ![Lineup](https://github.com/Luanbian/kyf-front/blob/main/public/profile.png)     |
 
 ---
 
