@@ -9,13 +9,14 @@ export const UploadDocument = () => {
   const handleSubmit = (values: { file: File | null }) => {
     if (values.file) {
       dispatch(actions.saveUploadedDocument(values.file));
+      dispatch(actions.getCustomerRequest());
     }
   };
 
   return (
     <Formik initialValues={{ file: null }} onSubmit={handleSubmit}>
       {({ setFieldValue }) => (
-        <Form>
+        <Form style={{ display: "flex", gap: 50 }}>
           <div style={{ display: "flex", gap: 15 }}>
             <input
               className="cs-input"
@@ -27,8 +28,12 @@ export const UploadDocument = () => {
             <button type="submit" className="cs-btn">
               Upload
             </button>
-            <p>{extractedDocument}</p>
           </div>
+          {extractedDocument && (
+            <div style={{ display: "flex" }}>
+              <p> Dado extraido do arquivo &gt; CPF: {extractedDocument}</p>
+            </div>
+          )}
         </Form>
       )}
     </Formik>

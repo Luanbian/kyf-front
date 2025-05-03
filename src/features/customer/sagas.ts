@@ -82,6 +82,7 @@ function* getCustomer() {
       discordId: data.discord?.id,
       avatar: data.discord?.avatar,
       username: data.discord?.username,
+      discordEmail: data.discord?.email,
       isFuriaGuild: data.discord?.isFuriaGuild,
       extractedDocument: data.documents?.cpf,
       address: {
@@ -96,12 +97,12 @@ function* getCustomer() {
 
     const calcFanPoints = () => {
       const fieldsWithPoints = [
-        { field: customerData.fullName, points: 10 },
-        { field: customerData.email, points: 10 },
-        { field: customerData.phone, points: 10 },
-        { field: customerData.cpf, points: 10 },
-        { field: customerData.birthDate, points: 10 },
-        { field: customerData.interests, points: 10 },
+        { field: customerData.fullName, points: 5 },
+        { field: customerData.email, points: 5 },
+        { field: customerData.phone, points: 5 },
+        { field: customerData.cpf, points: 5 },
+        { field: customerData.birthDate, points: 5 },
+        { field: customerData.interests, points: 15 },
         { field: customerData.username, points: 10 },
         { field: customerData.isFuriaGuild, points: 30 },
         { field: customerData.extractedDocument, points: 10 },

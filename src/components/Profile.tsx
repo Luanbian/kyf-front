@@ -1,4 +1,5 @@
 import bg from "../assets/bg_profile.jpeg";
+import defaultAvatar from "../assets/default_avatar.png";
 import classes from "./styles/profile.module.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "../store/hooks";
@@ -19,6 +20,7 @@ export const Profile = () => {
 
   const handleRedirectServer = () => {
     window.open(DISCORD_INVITE, "_blank", "noopener,noreferrer");
+    dispatch(actions.getCustomerRequest());
   };
 
   return (
@@ -26,12 +28,16 @@ export const Profile = () => {
       <img src={bg} alt="background" className={classes.bg} />
       <div className={classes.container}>
         <div className={classes.group}>
-          {data.discordId && data.avatar && (
+          {data.discordId && data.avatar ? (
             <div className={classes.avatarContainer}>
               <img
                 src={`${DISCORD_CDN}/avatars/${data.discordId}/${data.avatar}.png`}
                 className={classes.avatar}
               />
+            </div>
+          ) : (
+            <div className={classes.avatarContainer}>
+              <img src={defaultAvatar} className={classes.avatar} />
             </div>
           )}
           <div className={classes.infoContainer}>
@@ -78,24 +84,44 @@ export const Profile = () => {
             </div>
           </div>
 
+          <hr className="cs-hr" />
+
           <div>
-            <h2>Discord</h2>
-            <div>
-              <h2>Nome de usuario</h2>
-              <p>{data.username}</p>
-            </div>
-            <div>
-              <h2>Faz parte do discord da furia</h2>
-              <p>{data.isFuriaGuild ? "Sim" : "Nao"}</p>
-              {!data.isFuriaGuild && (
-                <button className="cs-btn" onClick={handleRedirectServer}>
-                  Fazer parte da furia
-                </button>
-              )}
+            <h2 style={{ textAlign: "center" }}>Discord</h2>
+
+            <div className={classes.info}>
+              <div className={classes.infoItem}>
+                <h2>Usuario</h2>
+                <p>{data.username || "####"}</p>
+              </div>
+
+              <div className={classes.infoItem}>
+                <h2>Email</h2>
+                <p>{data.discordEmail || "####"}</p>
+              </div>
+
+              <div className={classes.infoItem}>
+                <h2>Faz parte do discord da furia?</h2>
+                <p>
+                  {data.isFuriaGuild
+                    ? "Sim!, é um furioso da matilha"
+                    : "Ainda não, mas isso pode ser mudado"}
+                </p>
+                {!data.isFuriaGuild && (
+                  <button className="cs-btn" onClick={handleRedirectServer}>
+                    Fazer parte da furia
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 
+          <hr className="cs-hr" />
+
           <Points />
+
+          <hr className="cs-hr" />
+
           <UploadDocument />
         </div>
       </div>

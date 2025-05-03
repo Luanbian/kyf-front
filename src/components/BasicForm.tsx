@@ -135,7 +135,6 @@ export const BasicForm = () => {
                   />
                 </div>
               </div>
-
               <div>
                 <Field name="interests">
                   {({ field }: { field: FieldInputProps<string> }) => (
@@ -149,6 +148,8 @@ export const BasicForm = () => {
                 />
               </div>
             </div>
+
+            <hr className="cs-hr" />
 
             <div className={classes.formGroupOptional}>
               <Field
@@ -183,7 +184,7 @@ export const BasicForm = () => {
               />
             </div>
 
-            <div className={classes.formGroupButton}>
+            <div>
               <button type="submit" disabled={loading} className={"cs-btn"}>
                 {!loading ? "Confirmar" : "Carregando.."}
               </button>

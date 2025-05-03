@@ -18,6 +18,7 @@ export interface Customer {
   discordId?: string | null;
   avatar?: string | null;
   username?: string | null;
+  discordEmail?: string | null;
   isFuriaGuild?: boolean | null;
   extractedDocument?: string | null;
   address?: {

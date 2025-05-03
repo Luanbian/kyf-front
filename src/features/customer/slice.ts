@@ -21,6 +21,7 @@ export const initialState: CustomerSliceState = {
     isFuriaGuild: null,
     extractedDocument: null,
     discordId: null,
+    discordEmail: null,
     address: {
       street: "",
       number: "",
