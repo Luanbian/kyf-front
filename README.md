@@ -1,54 +1,129 @@
-# React + TypeScript + Vite
+# 🦁 FURIA CS:GO Know your fan 🔥
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Seja bem-vindo à matilha digital!  
+Este é o **sistema KYF oficial para fãs da FURIA Esports**, criado para conectar e energizar a comunidade da forma que só a FURIA sabe fazer: **com garra, atitude e paixão!**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Sobre o Projeto
 
-## Expanding the ESLint configuration
+O **FURIA KYF** é um sistema fullstack, feito para analisar os fãs da FURIA
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Cada interação foi pensada para transmitir a **energia e o espírito competitivo** da matilha.  
+Este projeto foi desenvolvido como um desafio técnico para a equipe de recrutamento da FURIA Esports, com foco em:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Alta qualidade técnica**
+- **Comunicação jovem e agressiva**
+- **UX imersivo para fãs de esports**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Stacks e Tecnologias Usadas
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Node.js** — Motor principal para performance e escalabilidade
+- **TypeScript** — Tipagem forte para mais robustez e segurança
+- **MongoDB** - Banco de dados NoSQL para armazenamento de dados
+- **Axios** — Consumo de API
+- **React.js** - Construção de interfaces de usuário reativas e componentizadas.
+- **Redux-saga** - Gerenciamento de estados globais de forma eficiente e organizada.
+- **Discord API** — integração com o discord dos usuários
+- **Docker** - Conteinerização da aplicação
+
+---
+
+## 📚 Funcionalidades
+
+- **Cadastro de usuário com dados baśicos**
+- **Conexão com discord**
+- **Upload de arquivos**
+- **Sistema de pontos para montar um fan level**
+- **Interface nostálgica baseado em CS 1.6**
+
+---
+
+## 🎯 Diferenciais do Projeto
+
+- **Textos altamente persuasivos**, alinhados com a identidade de marca da FURIA
+- **Respostas rápidas**, com servidor dedicado
+- **Facilidade de escalabilidade**, permitindo adicionar novas integrações rapidamente
+- **Código limpo, documentado e modularizado**
+
+---
+
+## 📸 Exemplos Visuais
+
+| Função         | Imagem                                                                               |
+| :------------- | :----------------------------------------------------------------------------------- |
+| Boas-vindas    | ![Start Screen](https://github.com/Luanbian/telegram-bot/blob/main/public/start.png) |
+| Últimos Clipes | ![Clipes](https://github.com/Luanbian/telegram-bot/blob/main/public/clipe.png)       |
+| Notice         | ![Lineup](https://github.com/Luanbian/telegram-bot/blob/main/public/notice.png)      |
+
+---
+
+## 🔥 Como Rodar o Projeto
+
+1. Clone o repositório:
+   ```bash
+    git clone https://github.com/Luanbian/kyf-front.git
+   ```
+2. Instale as dependências:
+   ```bash
+    npm install
+   ```
+3. Configure o .env:
+
+   ```bash
+      VITE_API_BASE_URL=
+      VITE_DISCORD_CDN=
+      VITE_DISCORD_INVITE=
+   ```
+
+4. Rode o projeto:
+   ```bash
+    npm run dev
+   ```
+
+## 🦁 Considerações Finais
+
+Este projeto é mais que código:
+É garra, paixão, atitude — tudo o que representa ser parte da FURIA.
+
+### "Aqui, não seguimos tendências. Nós as criamos." 🔥 #DaleFURIA
+
+| Notice | ![Lineup](https://github.com/Luanbian/telegram-bot/blob/main/public/notice.png) |
+
+---
+
+## 🔥 Como Rodar o Projeto
+
+1. Clone o repositório:
+   ```bash
+    git clone https://github.com/Luanbian/telegram-bot.git
+   ```
+2. Instale as dependências:
+   ```bash
+    npm install
+   ```
+3. Configure o .env:
+
+   ```bash
+    EXPRESS_PORT=
+    NGROK_URL=
+    TELEGRAM_TOKEN=
+    DRAFT_API_URL=
+    DRAFT_BASE_URL=
+    DRAFT_TEAM_ID=
+
+   ```
+
+4. Rode o bot:
+   ```bash
+    npm run dev
+   ```
+
+## 🦁 Considerações Finais
+
+Este projeto é mais que código:
+É garra, paixão, atitude — tudo o que representa ser parte da FURIA.
+
+### "Aqui, não seguimos tendências. Nós as criamos." 🔥 #DaleFURIA
