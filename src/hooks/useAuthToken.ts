@@ -1,18 +1,30 @@
-import Cookies from "js-cookie";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export const useAuthToken = () => {
-  const [hasAuthToken, setHasAuthToken] = useState(false);
+export function useAuthToken() {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    !!localStorage.getItem("authToken"),
+  );
 
   useEffect(() => {
-    const checkAuthToken = () => {
-      setHasAuthToken(!!Cookies.get("authToken"));
+    checkUrlForToken();
+    window.addEventListener("popstate", checkUrlForToken);
+
+    return () => {
+      window.removeEventListener("popstate", checkUrlForToken);
     };
-
-    const intervalId = setInterval(checkAuthToken, 100);
-
-    return () => clearInterval(intervalId);
   }, []);
 
-  return hasAuthToken;
-};
+  function checkUrlForToken() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlToken = urlParams.get("token");
+
+    if (urlToken) {
+      localStorage.setItem("authToken", urlToken);
+      setIsAuthenticated(true);
+
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }
+
+  return isAuthenticated;
+}

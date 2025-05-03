@@ -15,6 +15,7 @@ export interface Customer {
   cpf: string;
   birthDate: string;
   interests: string[];
+  discordId?: string | null;
   avatar?: string | null;
   username?: string | null;
   isFuriaGuild?: boolean | null;

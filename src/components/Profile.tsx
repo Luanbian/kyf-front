@@ -4,6 +4,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "../store/hooks";
 import { actions } from "../features/customer";
 import { Points } from "./Points";
+import { UploadDocument } from "./Upload";
+import { formatDate } from "../utils/formatDate";
+import { DISCORD_CDN } from "../constants/discord";
 
 export const Profile = () => {
   const dispatch = useDispatch();
@@ -33,10 +36,18 @@ export const Profile = () => {
             <p>{data.cpf}</p>
 
             <h2>Birthdate</h2>
-            <p>{data.birthDate}</p>
+            <p>{formatDate(data.birthDate)}</p>
             <h2>Interests</h2>
             <p>{data.interests?.join(", ")}</p>
+
+            <h2>Discord</h2>
+            <p>{data.isFuriaGuild?.toString()}</p>
+            <h2>Avatar</h2>
+            <img
+              src={`${DISCORD_CDN}/avatars/${data.discordId}/${data.avatar}.png`}
+            />
             <Points />
+            <UploadDocument />
           </div>
         </div>
       </div>

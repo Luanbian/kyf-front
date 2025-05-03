@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { all, call, put, select, takeEvery } from "redux-saga/effects";
 import axios, { AxiosError, AxiosResponse } from "axios";
@@ -17,7 +16,7 @@ function* saveCustomer() {
       yield call(axios.post, `${API_BASE_URL}/customer`, customer);
 
     yield put(actions.setCustomerId(response.data.data.insertedId));
-    Cookies.remove("authToken");
+    localStorage.clear();
   } catch (error) {
     const errorMessage =
       error instanceof AxiosError
@@ -37,11 +36,11 @@ function* saveCustomerDiscord() {
       (state) => state.customer.customerId,
     );
 
-    const authToken = Cookies.get("authToken");
+    const authToken = localStorage.getItem("authToken");
     yield call(
       axios.put,
       `${API_BASE_URL}/customer/discord/${customerId}`,
-      null,
+      { auth: authToken },
       {
         headers: {
           Authorization: `Bearer ${authToken}`,
@@ -80,6 +79,7 @@ function* getCustomer() {
       cpf: data.cpf,
       birthDate: data.birthDate,
       interests: data.interests,
+      discordId: data.discord?.id,
       avatar: data.discord?.avatar,
       username: data.discord?.username,
       isFuriaGuild: data.discord?.isFuriaGuild,
