@@ -26,8 +26,8 @@ export const DiscordConnect = () => {
       <img src={bg} alt="background" className={classes.bg} />
       <div className={classes.container}>
         <div className={classes.group}>
-          <h1>Connect to Discord</h1>
-          <button onClick={connectDiscord}>
+          <h1>Conectar com o Discord</h1>
+          <button onClick={connectDiscord} className={"cs-btn"}>
             {connected ? "Conectado!" : "Conectar"}
           </button>
         </div>

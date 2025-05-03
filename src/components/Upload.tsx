@@ -16,16 +16,17 @@ export const UploadDocument = () => {
     <Formik initialValues={{ file: null }} onSubmit={handleSubmit}>
       {({ setFieldValue }) => (
         <Form>
-          <div>
-            <h1>Upload Document</h1>
-            <p>This is the upload document page.</p>
+          <div style={{ display: "flex", gap: 15 }}>
             <input
+              className="cs-input"
               type="file"
               onChange={(e) =>
                 setFieldValue("file", e.target.files?.[0] || null)
               }
             />
-            <button type="submit">Upload</button>
+            <button type="submit" className="cs-btn">
+              Upload
+            </button>
             <p>{extractedDocument}</p>
           </div>
         </Form>

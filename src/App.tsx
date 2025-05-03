@@ -26,14 +26,28 @@ function App() {
     <Tabs selectedIndex={activeTab} onSelect={(index) => setActiveTab(index)}>
       <TabList
         style={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
+          position: "fixed",
+          zIndex: 1,
+          marginInline: "2vw",
+          marginBlock: "2vh",
         }}
+        className="cs-tabs"
       >
-        <Tab>Basic Form</Tab>
-        <Tab disabled={!customerId}>Discord Connect</Tab>
-        <Tab disabled={!customerId}>Profile</Tab>
+        <Tab style={{ color: "#C4B550", backgroundColor: "#3E4637" }}>
+          Basic Form
+        </Tab>
+        <Tab
+          style={{ color: "#C4B550", backgroundColor: "#3E4637" }}
+          disabled={!customerId}
+        >
+          Discord Connect
+        </Tab>
+        <Tab
+          style={{ color: "#C4B550", backgroundColor: "#3E4637" }}
+          disabled={!customerId}
+        >
+          Profile
+        </Tab>
       </TabList>
 
       <TabPanel>
