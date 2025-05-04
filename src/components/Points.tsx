@@ -2,7 +2,7 @@ import { useSelector } from "../store/hooks";
 
 const fanLevel = [
   { min: 0, max: 25, label: "Iniciante" },
-  { min: 26, max: 50, label: "Intermediário" },
+  { min: 26, max: 50, label: "Intermediario" },
   { min: 51, max: 75, label: "Experiente" },
   { min: 76, max: 99, label: "Mestre" },
   { min: 100, max: Infinity, label: "Lenda" },

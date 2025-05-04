@@ -154,32 +154,32 @@ export const BasicForm = () => {
             <div className={classes.formGroupOptional}>
               <Field
                 name="address.street"
-                placeholder="Rua"
+                placeholder="Rua (opcional)"
                 className={`cs-input ${classes.fieldAll}`}
               />
               <Field
                 name="address.number"
-                placeholder="Numero"
+                placeholder="Numero (opcional)"
                 className={`cs-input ${classes.fieldAll}`}
               />
               <Field
                 name="address.complement"
-                placeholder="Complemento"
+                placeholder="Complemento (opcional)"
                 className={`cs-input ${classes.fieldAll}`}
               />
               <Field
                 name="address.city"
-                placeholder="Cidade"
+                placeholder="Cidade (opcional)"
                 className={`cs-input ${classes.fieldAll}`}
               />
               <Field
                 name="address.state"
-                placeholder="Estado"
+                placeholder="Estado (opcional)"
                 className={`cs-input ${classes.fieldAll}`}
               />
               <Field
                 name="address.zipCode"
-                placeholder="CEP"
+                placeholder="CEP (opcional)"
                 className={`cs-input ${classes.fieldAll}`}
               />
             </div>
