@@ -1,2 +1,2 @@
-export const DISCORD_CDN = import.meta.env.VITE_DISCORD_CDN || "";
-export const DISCORD_INVITE = import.meta.env.VITE_DISCORD_INVITE || "";
+export const DISCORD_CDN = "https://cdn.discordapp.com";
+export const DISCORD_INVITE = "https://discord.com/invite/furia";
