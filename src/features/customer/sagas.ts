@@ -145,8 +145,9 @@ function* saveDocument(action: PayloadAction<File>) {
         formData,
       );
     const { data } = response.data;
+    const cpfData = typeof data.cpf === "string" ? data.cpf : null;
 
-    yield put(actions.setExtractedDocument(data.cpf));
+    yield put(actions.setExtractedDocument(cpfData));
   } catch (error) {
     const errorMessage =
       error instanceof AxiosError
